@@ -1,0 +1,10 @@
+This program uses Velocity Verlet method to simulate N-bodies interacting through Newtonian gravity.
+To run the file one need to input the simulation parameters dt and numstep, initial conditions file and the output files' names(one each for XYZ and energy output files). Input same names for two output files' names will cause the energy output file overwrite the xyz file, so the code will break with an error message.
+For dt and numstep inputting all non-zero positive floats are acceptable, otherwise an error message will pop out. Be aware that numstep should be an integer so the code will convert the input into the closet integer.
+Initial conditions and parameters have been prepared, user just need to type the file names according to the instruction given in the console. The initial conditions used contains 12 objects. Be aware that since calculation of the Moon involves the Earth-Moon distance, the program is coded such that it only works when the Earth and the Moon in the initial conditions are typed as "Earth" and "Moon".
+The only parameter prepared here is the Gravititional constant G, here G is 8.8877e-10AU^3M_earth^-1day^-2 to consistent with units used in the initial conditions.
+Results for apsides and periods have units of AU and days respectively, periods are written in 2 decimal places, apsides remain the original values since the apsides for the Moon is too small to be written in 2 decimal places. If the planet has only partially completed its orbit, the method would return 'NaN' for both periods and apsides.
+Result of energy deviation is written in 2 decimal places with scientific notation with unit AU^2 M_earth day^-2
+The suggested value for dt is 1.0, values higher than this may cause inaccurate observable values.
+The output xyz file is in the standard format, the energy output file have time, total energy, kinetic energy and potential energy in each line.
+The program will print out x-position versus time and total energy versus time. The defulat x-position is that of the Mercury, by changing the index to change the object. Change pos_list[] to pos_moon_list to see the x-position of the Moon with respect to the Earth.
